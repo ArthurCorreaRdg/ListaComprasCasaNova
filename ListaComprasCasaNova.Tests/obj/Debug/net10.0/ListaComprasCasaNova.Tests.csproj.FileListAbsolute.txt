@@ -106,3 +106,4 @@ C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova.Tests\obj\Debug\net10
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova.Tests\obj\Debug\net10.0\ListaComprasCasaNova.Tests.pdb
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova.Tests\obj\Debug\net10.0\ListaComprasCasaNova.Tests.genruntimeconfig.cache
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova.Tests\obj\Debug\net10.0\ref\ListaComprasCasaNova.Tests.dll
+C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova.Tests\obj\Debug\net10.0\ListaComprasCasaNova.Tests.sourcelink.json

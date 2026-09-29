@@ -1,5 +1,6 @@
 using ListaComprasCasaNova.Domain.Enums;
 using ListaComprasCasaNova.Domain.Entities;
+using ListaComprasCasaNova.Domain.Exceptions;
 
 namespace ListaComprasCasaNova.Tests.Domain.Entities;
 
@@ -80,5 +81,40 @@ public class ListaComprasTests
         Assert.Equal(2, lista.Itens.Count);
         Assert.Contains(arroz, lista.Itens);
         Assert.Contains(papelHigienico, lista.Itens);        
+    }
+
+    [Fact]
+    public void NaoDeveAdicionarItemAListaQuandoDuplicado()
+    {
+        var listaCompra = new ListaCompra
+        {
+            Id = 1,
+            Nome = "Lista Duplicada",
+            Tipo = TipoLista.Mensal,
+            Status = StatusLista.Ativa,
+            DataCriacao = new DateTime(2026, 9, 1)   
+        };
+
+        var arroz = new ItemCompra
+        {
+            Id = 1,
+            Nome = "Arroz",
+            QuantidadePeso = 5,
+            Categoria = CategoriaItem.Alimentacao,
+            Comprado = false
+        };
+
+        var outroArroz = new ItemCompra
+        {
+            Id = 2,
+            Nome = "arroz",
+            QuantidadePeso = 10,
+            Categoria = CategoriaItem.Alimentacao,
+            Comprado = false
+        };
+
+        listaCompra.AdicionarItem(arroz);
+
+        Assert.Throws<BusinessException>(()=> listaCompra.AdicionarItem(outroArroz));
     }
 }

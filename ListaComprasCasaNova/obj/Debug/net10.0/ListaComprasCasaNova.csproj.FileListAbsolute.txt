@@ -31,3 +31,4 @@ C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova\obj\Debug\net10.0\ref
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova\obj\Debug\net10.0\ListaComprasCasaNova.pdb
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova\obj\Debug\net10.0\ListaComprasCasaNova.genruntimeconfig.cache
 C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova\obj\Debug\net10.0\ref\ListaComprasCasaNova.dll
+C:\Users\Usuário\ProjetoListaCompras\ListaComprasCasaNova\obj\Debug\net10.0\ListaComprasCasaNova.sourcelink.json
