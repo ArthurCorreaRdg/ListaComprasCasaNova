@@ -9,21 +9,15 @@ public class ListaComprasTests
     [Fact]
     public void DeveCriarListaCasaNova()
     {
-        var dataCriacao = new DateTime(2026, 9, 28);
-        var lista = new ListaCompra
-        {
-            Id = 1,
-            Nome = "Casa Nova",
-            Tipo = TipoLista.CasaNova,
-            Status = StatusLista.Ativa,
-            DataCriacao = dataCriacao
-        };
+        var lista = new ListaCompra(
+            "Casa Nova",
+            TipoLista.CasaNova
+        );
 
-        Assert.Equal(1, lista.Id);
         Assert.Equal("Casa Nova", lista.Nome);
         Assert.Equal(TipoLista.CasaNova, lista.Tipo);
         Assert.Equal(StatusLista.Ativa, lista.Status);
-        Assert.Equal(dataCriacao, lista.DataCriacao);
+        Assert.Equal(DateTime.Today, lista.DataCriacao);
 
         Assert.Empty(lista.Itens);      
     }
@@ -31,49 +25,49 @@ public class ListaComprasTests
     [Fact]
     public void DeveCriarListaMensal()
     {
-        var lista = new ListaCompra
-        {
-            Id = 2,
-            Nome = "Compras Setembro",
-            Tipo = TipoLista.Mensal,
-            Status = StatusLista.Ativa,
-            DataCriacao = new DateTime(2026, 9, 1)
-        };
+        var lista = new ListaCompra(
+            "Compras Setembro",
+            TipoLista.Mensal
+        );
 
-        Assert.Equal(2, lista.Id);
         Assert.Equal("Compras Setembro", lista.Nome);
         Assert.Equal(TipoLista.Mensal, lista.Tipo);
         Assert.Equal(StatusLista.Ativa, lista.Status);
+        Assert.Equal(DateTime.Today, lista.DataCriacao);
         Assert.Empty(lista.Itens);
+    }
+
+    [Fact]
+    public void NaoDeveCriarListaSemNome()
+    {
+        Assert.Throws<BusinessException>(() =>
+            new ListaCompra(
+                "",
+                TipoLista.Mensal
+            ));
     }
 
     [Fact]
     public void DeveAdicionarItensNaLista()
     {
-        var lista = new ListaCompra
-        {
-            Id = 1,
-            Nome = "Compras Setembro",
-            Tipo = TipoLista.Mensal,
-            Status = StatusLista.Ativa,
-            DataCriacao = new DateTime(2026, 9, 1)            
-        };
+        var lista = new ListaCompra(
+            "Compras Setembro",
+            TipoLista.Mensal
+        );
 
-        var arroz = new ItemCompra
-        {
-            Id = 1,
-            Nome = "Arroz",
-            QuantidadePeso = 5,
-            Categoria = CategoriaItem.Alimentacao            
-        };
+        var arroz = new ItemCompra(
+            "Arroz",
+            5,
+            null,
+            CategoriaItem.Alimentacao
+            );
 
-        var papelHigienico = new ItemCompra
-        {
-            Id = 2,
-            Nome = "Papel Higiênico",
-            QuantidadeUnidades = 12,
-            Categoria = CategoriaItem.Higiene
-        };
+        var papelHigienico = new ItemCompra(
+            "Papel Higiênico",
+            null,
+            12,
+            CategoriaItem.Higiene
+            );
 
         lista.Itens.Add(arroz);
         lista.Itens.Add(papelHigienico);
@@ -86,35 +80,28 @@ public class ListaComprasTests
     [Fact]
     public void NaoDeveAdicionarItemAListaQuandoDuplicado()
     {
-        var listaCompra = new ListaCompra
-        {
-            Id = 1,
-            Nome = "Lista Duplicada",
-            Tipo = TipoLista.Mensal,
-            Status = StatusLista.Ativa,
-            DataCriacao = new DateTime(2026, 9, 1)   
-        };
+        var listaCompra = new ListaCompra(
+            "Lista Duplicada",
+            TipoLista.Mensal
+            );
 
-        var arroz = new ItemCompra
-        {
-            Id = 1,
-            Nome = "Arroz",
-            QuantidadePeso = 5,
-            Categoria = CategoriaItem.Alimentacao,
-            Comprado = false
-        };
+        var arroz = new ItemCompra(
+            "Arroz",
+            5,
+            null,
+            CategoriaItem.Alimentacao
+            );
 
-        var outroArroz = new ItemCompra
-        {
-            Id = 2,
-            Nome = "arroz",
-            QuantidadePeso = 10,
-            Categoria = CategoriaItem.Alimentacao,
-            Comprado = false
-        };
+        var outroArroz = new ItemCompra(
+            "arroz",
+            10,
+            null,
+            CategoriaItem.Alimentacao
+            );
 
         listaCompra.AdicionarItem(arroz);
 
         Assert.Throws<BusinessException>(()=> listaCompra.AdicionarItem(outroArroz));
     }
+
 }
