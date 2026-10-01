@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj": {}
+    "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj": {
+    "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj",
         "projectName": "ListaComprasCasaNova.Tests",
-        "projectPath": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj",
+        "projectPath": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova.Tests\\ListaComprasCasaNova.Tests.csproj",
         "packagesPath": "C:\\Users\\Usuário\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova.Tests\\obj\\",
+        "outputPath": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuário\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -27,8 +27,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj": {
-                "projectPath": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj"
+              "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj": {
+                "projectPath": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj"
               }
             }
           }
@@ -361,14 +361,14 @@
         }
       }
     },
-    "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj": {
+    "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj",
+        "projectUniqueName": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj",
         "projectName": "ListaComprasCasaNova",
-        "projectPath": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj",
+        "projectPath": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\ListaComprasCasaNova.csproj",
         "packagesPath": "C:\\Users\\Usuário\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuário\\ProjetoListaCompras\\ListaComprasCasaNova\\obj\\",
+        "outputPath": "C:\\Users\\Usuário\\Desktop\\ProjetoC#\\ProjetoListaComprasCasaNova\\ListaComprasCasaNova\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuário\\AppData\\Roaming\\NuGet\\NuGet.Config"

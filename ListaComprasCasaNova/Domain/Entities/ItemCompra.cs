@@ -11,7 +11,6 @@ public class ItemCompra
     public int? QuantidadeUnidades { get; set; }
     public CategoriaItem Categoria { get; set; }
     public bool Comprado { get; set; }
-    public string? Observacao { get; set; }
     
     public ItemCompra(
         string nome, 
@@ -39,6 +38,11 @@ public class ItemCompra
         this.QuantidadeUnidades = quantidadeUnidades;
         this.Categoria = categoria;
         Comprado = false;
+    }
+
+    public void AlterarStatusComprado()
+    {
+        Comprado = !Comprado;
     }
 
 }

@@ -15,9 +15,9 @@ public class ListaCompra
     public List<ItemCompra> Itens { get; private set; } = new();
 
     public ListaCompra(
-        string nome, 
-        TipoLista tipo
-        )
+                        string nome, 
+                        TipoLista tipo
+                        )
     {
         if(string.IsNullOrWhiteSpace(nome))
         {
@@ -31,6 +31,14 @@ public class ListaCompra
     }
     public void AdicionarItem(ItemCompra item)
     {
+        if(Status != StatusLista.Ativa)
+        {
+            throw new BusinessException("Não é possível adicionar itens em lista que não esteja ativa");
+        }
+        if(item == null)
+        {
+            throw new BusinessException("Não é possível adicionar item nulo à lista");
+        }
         if (Itens.Any(itemExistente => string.Equals(
                                             itemExistente.Nome.Trim(), 
                                             item.Nome.Trim(), 
@@ -43,6 +51,43 @@ public class ListaCompra
 
     public void RemoverItem(ItemCompra item)
     {
+        if(Status != StatusLista.Ativa)
+        {
+            throw new BusinessException("Não é possível remover itens em lista que não esteja ativa");
+        }
+        if(item == null)
+        {
+            throw new BusinessException("Não é possível excluir item nulo");
+        }
+
+        if (!Itens.Any(itemExistente => string.Equals(
+                                            itemExistente.Nome.Trim(), 
+                                            item.Nome.Trim(), 
+                                            StringComparison.OrdinalIgnoreCase)))
+        {
+            throw new BusinessException("Não há este item na lista");
+        }
+
         Itens.Remove(item);
+    }
+
+    public void ConcluirLista()
+    {
+        if(Status != StatusLista.Ativa)
+        {
+            throw new BusinessException("A Lista não pode ser concluída");
+        }
+
+        Status = StatusLista.Concluida;
+        DataConclusao = DateTime.Today;
+    }
+
+    public void ArquivarLista()
+    {
+        if(Status == StatusLista.Arquivada)
+        {
+            throw new BusinessException("Não é permitico arquivar lista já arquivada");
+        }
+        Status = StatusLista.Arquivada;
     }
 }

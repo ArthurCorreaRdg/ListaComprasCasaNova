@@ -114,4 +114,35 @@ public class ItemComprasTests
         )
         );        
     }
+
+    [Fact]
+    public void DeveAlterarStatusCompradoParaTrue()
+    {
+        var arroz = new ItemCompra(
+            "Arroz",
+            5,
+            null,
+            CategoriaItem.Alimentacao
+        );
+
+        arroz.AlterarStatusComprado();
+
+        Assert.True(arroz.Comprado);
+    }
+
+        [Fact]
+    public void DeveAlterarStatusCompradoParaFalse()
+    {
+        var arroz = new ItemCompra(
+            "Arroz",
+            5,
+            null,
+            CategoriaItem.Alimentacao
+        );
+
+        arroz.AlterarStatusComprado();
+        arroz.AlterarStatusComprado();
+
+        Assert.False(arroz.Comprado);
+    }
 }
