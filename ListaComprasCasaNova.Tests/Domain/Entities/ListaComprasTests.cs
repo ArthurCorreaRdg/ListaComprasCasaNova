@@ -1,8 +1,6 @@
 using ListaComprasCasaNova.Domain.Enums;
 using ListaComprasCasaNova.Domain.Entities;
 using ListaComprasCasaNova.Domain.Exceptions;
-using Microsoft.VisualBasic;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
 
 namespace ListaComprasCasaNova.Tests.Domain.Entities;
 
