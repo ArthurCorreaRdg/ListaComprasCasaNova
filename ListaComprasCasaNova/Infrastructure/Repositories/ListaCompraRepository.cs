@@ -2,16 +2,23 @@ using ListaComprasCasaNova.Domain.Entities;
 
 namespace ListaComprasCasaNova.Infrastructure.Repositories;
 
-public class ListaCompraRepository
+public class ListaCompraRepository : IListaCompraRepository
 {
+    var caminhoArquivoReal = Path.Combine(Directory.GetCurrentDirectory(), "Data", "listas-compras.json");
     public void Salvar(ListaCompra listaCompra)
     {
-        if(!File.Exists("listas_compras.json"))
+        var diretorioRaiz = Directory.GetCurrentDirectory();
+        var diretorioData = Path.Combine(diretorioRaiz, "Data");
+        var caminhoArquivo = Path.Combine(diretorioData, "listas-compras.json");
+        
+        Directory.CreateDirectory(diretorioData);
+
+        if(!File.Exists(caminhoArquivo))
         {
-            File.WriteAllText("listas_compras.json", "[]");
+            File.WriteAllText(caminhoArquivo, "[]");
         }
 
-        var json = File.ReadAllText("listas_compras.json");
+        var json = File.ReadAllText(caminhoArquivo);
         var listas = System.Text.Json.JsonSerializer.
                     Deserialize<List<ListaCompra>>(json) ?? new List<ListaCompra>();
 
@@ -19,18 +26,41 @@ public class ListaCompraRepository
 
         listas.Add(listaCompra);
         json = System.Text.Json.JsonSerializer.Serialize(listas);
-        File.WriteAllText("listas_compras.json", json);
+        File.WriteAllText(caminhoArquivo, json);
     }
 
     public ListaCompra? BuscarPorId(long id)
     {
-        // Lógica para buscar a lista de compras pelo ID no banco de dados
-        return null; // Retorna null se não encontrar
+        var diretorioRaiz = Directory.GetCurrentDirectory();
+        var diretorioData = Path.Combine(diretorioRaiz, "Data");
+        var caminhoArquivo = Path.Combine(diretorioData, "listas-compras.json");
+
+        if (!File.Exists(caminhoArquivo))
+        {
+            return null;
+        }
+
+        var json = File.ReadAllText(caminhoArquivo);
+        var listas = System.Text.Json.JsonSerializer.Deserialize<List<ListaCompra>>(json)
+                                    ?? new List<ListaCompra>();
+
+        return listas.FirstOrDefault(l => l.Id == id);
     }
 
-    public List<ListaCompra> BuscarTodos()
+    public List<ListaCompra> BuscarTodas()
     {
-        // Lógica para buscar todas as listas de compras no banco de dados
-        return new List<ListaCompra>();
+        var caminhoArquivo = Path.Combine(Directory.GetCurrentDirectory(), "Data", "listas-compras.json");
+
+        if (!File.Exists(caminhoArquivo))
+        {
+            return new List<ListaCompra>();
+        }   
+
+        var json = File.ReadAllText(caminhoArquivo);
+        var listas = System.Text.Json.JsonSerializer.
+                    Deserialize<List<ListaCompra>>(json) ?? new List<ListaCompra>();
+
+        return listas;
     }
+
 }

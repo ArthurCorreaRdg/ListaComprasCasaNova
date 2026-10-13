@@ -8,5 +8,6 @@ public interface IListaCompraRepository
 
     ListaCompra? BuscarPorId(long id);
 
-    List<ListaCompra> BuscarTodos();
+    List<ListaCompra> BuscarTodas();
+
 }
